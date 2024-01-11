@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './App.scss';
-import PhotoListItem from './components/PhotoListItem';
 import PhotoList from 'components/PhotoList';
+import TopicList from 'components/TopicList';
 
 // Note: Rendering a single component to build components in isolation
 
@@ -25,6 +25,7 @@ const App = () => {
       {/* { photos.map((photo, index) =>
         <PhotoListItem key={ photo.id + index} photo={ photo } />
       ) } */}
+      <TopicList />
       <PhotoList />
     </div>
   );
