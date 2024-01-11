@@ -9,7 +9,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton toggleHeart={ props.toggleHeart } heart={ props.heart }/>
+      <PhotoFavButton toggleHeart={ props.toggleHeart } heart={ props.heart } photoId={ props.photo.id } />
       <img className="photo-list__image" src={ urls.regular } />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={ user.profile } />
