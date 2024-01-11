@@ -14,8 +14,8 @@ const TopicListItem = (props) => {
   const { title } = props.topic
 
   return (
-    <div className="top-nav-bar__topic-list">
-      <span className="topic-list__item">{ title }</span>
+    <div className="topic-list__item">
+      <span>{ title }</span>
     </div>
   );
 };
