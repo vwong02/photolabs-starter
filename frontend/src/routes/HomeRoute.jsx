@@ -10,17 +10,13 @@ const HomeRoute = (props) => {
 
   const [ heart, setHeart ] = useState([])
 
-  // const toggleHeart = () => {
-  //   setHeart((prevHeart) => [ ...prevHeart])
-  // }
-
   const toggleHeart = (photoId) => {
     setHeart((prevHeart) => {
       const isHeart = prevHeart.includes(photoId)
       if (isHeart) {
         return prevHeart.filter((id) => id !== photoId)
       } else {
-        return [...prevHeart, photoId]
+        return [ ...prevHeart, photoId ]
       }
     })
   }

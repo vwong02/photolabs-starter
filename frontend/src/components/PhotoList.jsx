@@ -7,7 +7,7 @@ const PhotoList = (props) => {
     <ul className="photo-list">
       { props.photos.map((photo) => {
         return (
-          <PhotoListItem key={ photo.id } photo={ photo } toggleHeart={ props.toggleHeart } heart={ props.heart }/>)
+          <PhotoListItem key={ photo.id } photo={ photo } toggleHeart={ props.toggleHeart } heart={ props.heart } />)
       }
       ) }
     </ul>

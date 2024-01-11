@@ -5,14 +5,6 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  // const [ heart, setHeart ] = useState(false)
-
-  // const like = () => {
-  //   return (
-  //     setHeart(prevHeart => !prevHeart)
-  //   )
-  // }
-
   const isHeart = props.heart.includes(props.photoId) ? true : false
 
   const handleHeartClick = () => {
