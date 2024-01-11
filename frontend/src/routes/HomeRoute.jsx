@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 import '../styles/HomeRoute.scss';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
@@ -8,15 +7,15 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
 
-  const [ heart, setHeart ] = useState([])
+  const [ favourite, setFavourite ] = useState([])
 
-  const toggleHeart = (photoId) => {
-    setHeart((prevHeart) => {
-      const isHeart = prevHeart.includes(photoId)
-      if (isHeart) {
-        return prevHeart.filter((id) => id !== photoId)
+  const toggleFavourite = (photoId) => {
+    setFavourite((prevFavourite) => {
+      const isFavourite = prevFavourite.includes(photoId)
+      if (isFavourite) {
+        return prevFavourite.filter((id) => id !== photoId)
       } else {
-        return [ ...prevHeart, photoId ]
+        return [ ...prevFavourite, photoId ]
       }
     })
   }
@@ -25,7 +24,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={ props.topics } />
-      <PhotoList photos={ props.photos } toggleHeart={ toggleHeart } heart={ heart } />
+      <PhotoList photos={ props.photos } toggleFavourite={ toggleFavourite } favourite={ favourite } />
     </div>
   );
 };
