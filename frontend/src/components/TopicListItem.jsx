@@ -14,9 +14,9 @@ const TopicListItem = (props) => {
   const { title } = props.topic
 
   return (
-    <div className="topic-list__item">
+    <ul className="topic-list__item">
       <span>{ title }</span>
-    </div>
+    </ul>
   );
 };
 
