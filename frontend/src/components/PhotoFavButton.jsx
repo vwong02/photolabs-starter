@@ -6,9 +6,10 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton() {
 
   const [heart, setHeart] = useState(false)
+  
   const like = () => {
     return (
-      heart === false ? setHeart(true) : setHeart(false)
+      setHeart(prevHeart => !prevHeart)
     )
   }
 
