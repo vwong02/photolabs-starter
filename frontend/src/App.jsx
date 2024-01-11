@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="App">
       { photos.map((photo, index) =>
-        <PhotoListItem key={ photo.id + index } photo={ photo } />
+        <PhotoListItem key={ photo.id + index} photo={ photo } />
       ) }
     </div>
   );
