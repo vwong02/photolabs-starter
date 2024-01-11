@@ -1,17 +1,17 @@
 import React from 'react';
 
 import '../styles/TopNavigationBar.scss'
-import FavBadge from 'components/FavBadge' 
+import FavBadge from 'components/FavBadge'
 import TopicList from './TopicList';
 
-const TopNavigation = () => {
+const TopNavigationBar = (props) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList />
+      <TopicList topics={ props.topics } />
       <FavBadge />
     </div>
   )
 }
 
-export default TopNavigation;
+export default TopNavigationBar;
