@@ -10,10 +10,18 @@ const App = () => {
 
   const [ displayModal, setDisplayModal ] = useState(false)
 
+  const [ selectedPhoto, setSelectedPhoto ] = useState(null)
+
+  const showModal = (photo) => {
+    setSelectedPhoto(photo);
+    setDisplayModal(true);
+    console.log(photo)
+  }
+
   return (
     <div className="App">
-      <HomeRoute topics={ topics } photos={ photos } setDisplayModal={ setDisplayModal } />
-      { displayModal && <PhotoDetailsModal setDisplayModal={ setDisplayModal } /> }
+      <HomeRoute topics={ topics } photos={ photos } setDisplayModal={ setDisplayModal } showModal={ showModal } />
+      { displayModal && <PhotoDetailsModal selectedPhoto={ selectedPhoto } setDisplayModal={ setDisplayModal } showModal={ showModal } /> }
     </div>
   );
 };
