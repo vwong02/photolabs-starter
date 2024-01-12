@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute topics={ topics } photos={ photos } setModal={ setModal } />
-      { photoModal && <PhotoDetailsModal /> }
+      { photoModal && <PhotoDetailsModal setModal={ setModal } /> }
     </div>
   );
 };
