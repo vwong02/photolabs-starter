@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = (props) => {
 
-  const { id, location, urls, user, similar_photos } = props.selectedPhoto
+  const { location, urls, user, similar_photos } = props.selectedPhoto
 
   const handleClick = () => {
     props.showModal(false)
