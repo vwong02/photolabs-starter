@@ -8,7 +8,7 @@ const PhotoListItem = (props) => {
   const { location, urls, user } = props.photo
 
   const handleClick = () => {
-    props.setModal(true)
+    props.setDisplayModal(true)
   }
 
   return (

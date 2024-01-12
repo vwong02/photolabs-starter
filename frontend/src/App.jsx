@@ -8,12 +8,12 @@ import photos from 'mocks/photos';
 
 const App = () => {
 
-  const [ photoModal, setModal ] = useState(false)
+  const [ displayModal, setDisplayModal ] = useState(false)
 
   return (
     <div className="App">
-      <HomeRoute topics={ topics } photos={ photos } setModal={ setModal } />
-      { photoModal && <PhotoDetailsModal setModal={ setModal } /> }
+      <HomeRoute topics={ topics } photos={ photos } setDisplayModal={ setDisplayModal } />
+      { displayModal && <PhotoDetailsModal setDisplayModal={ setDisplayModal } /> }
     </div>
   );
 };
