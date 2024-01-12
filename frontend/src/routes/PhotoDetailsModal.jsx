@@ -8,7 +8,7 @@ const PhotoDetailsModal = (props) => {
   const { location, urls, user, similar_photos } = props.selectedPhoto
 
   const handleClick = () => {
-    props.showModal(false)
+    props.setDisplayModal(false)
   }
 
   return (
