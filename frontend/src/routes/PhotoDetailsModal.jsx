@@ -5,12 +5,12 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = (props) => {
+const PhotoDetailsModal = ({ selectedPhotos, setDisplayModal, showModal }) => {
 
-  const { location, urls, user, similar_photos } = props.selectedPhoto
+  const { location, urls, user, similar_photos } = selectedPhotos
 
   const handleClick = () => {
-    props.setDisplayModal(false)
+    setDisplayModal(false)
   }
 
   return (

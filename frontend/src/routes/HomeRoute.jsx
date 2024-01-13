@@ -24,7 +24,7 @@ const HomeRoute = ({ topics, photos, showModal }) => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={ topics } isFavPhotoExist={ isFavPhotoExist } />
-      <PhotoList photos={ photos } toggleFavourites={ toggleFavourites } favourites={ favourites } setFavourites={ setFavourites } showModal={ showModal } />
+      <PhotoList photos={ photos } toggleFavourites={ toggleFavourites } setFavourites={ setFavourites } showModal={ showModal } favourites={ favourites } />
     </div>
   );
 };
