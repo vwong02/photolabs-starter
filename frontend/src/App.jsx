@@ -21,10 +21,8 @@ const App = () => {
   const toggleFavourites = (photoId) => {
     if (!favourites.includes(photoId)) {
       setFavourites((prevFavourites) => [ ...prevFavourites, photoId ])
-      return favourites;
     } else {
       setFavourites(favourites.filter((id) => id !== photoId));
-      return favourites;
     }
   }
 
