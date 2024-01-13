@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  const isFavourite = props.favourite.includes(props.photoId) ? true : false
+  const isFavourite = props.favourite.includes(props.photoId)
+
+  // const like = function () {
+  //   return (
+  //     props.favourite.includes(props.photoId) ? setHeartIcon(true) : setHeartIcon(false)
+  //   )
+  // }
 
   const handleFavIconClick = () => {
     props.toggleFavourite(props.photoId)

@@ -9,7 +9,6 @@ import photos from 'mocks/photos';
 const App = () => {
 
   const [ displayModal, setDisplayModal ] = useState(false)
-
   const [ selectedPhoto, setSelectedPhoto ] = useState(null)
 
   const showModal = (photo) => {
@@ -20,7 +19,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute topics={ topics } photos={ photos } setDisplayModal={ setDisplayModal } showModal={ showModal } />
+      <HomeRoute topics={ topics } photos={ photos } setDisplayModal={ setDisplayModal } setSelectedPhoto={setSelectedPhoto} showModal={ showModal } />
       { displayModal && <PhotoDetailsModal selectedPhoto={ selectedPhoto } setDisplayModal={ setDisplayModal } showModal={ showModal } /> }
     </div>
   );

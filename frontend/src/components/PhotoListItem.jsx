@@ -9,7 +9,9 @@ const PhotoListItem = (props) => {
 
   const handleClick = () => {
     props.showModal(props.photo)
+    props.setSelectedPhoto(props.photo)
   }
+
 
   return (
     <div className="photo-list__item">

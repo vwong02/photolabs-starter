@@ -2,6 +2,8 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
+
 
 const PhotoDetailsModal = (props) => {
 
@@ -10,6 +12,8 @@ const PhotoDetailsModal = (props) => {
   const handleClick = () => {
     props.setDisplayModal(false)
   }
+
+  console.log(Object.values(similar_photos))
 
   return (
     <div className="photo-details-modal">
@@ -27,6 +31,7 @@ const PhotoDetailsModal = (props) => {
               { location.city }, { location.country }
             </div>
           </div>
+          <PhotoList photos={ Object.values(similar_photos) } />
         </div>
       </div>
     </div>
