@@ -20,16 +20,16 @@ const PhotoDetailsModal = ({ selectedPhotos, setDisplayModal, toggleFavourites, 
       </button>
       <div className="photo-details-modal__images">
         <img className="photo-details-modal__image" src={ urls.regular }></img>
-        <div className="photo-details-modal__photographer-details">
-          <img className="photo-list__user-profile" src={ user.profile }></img>
-          <div className="photo-list__user-info">
+        <div className='photo-details-modal__photographer-details' >
+          <img className="photo-details-modal__photographer-profile" src={ user.profile }></img>
+          <div className="photo-details-modal__photographer-info" >
             <span>{ user.name }</span>
-            <div className="photo-list__user-location">
+            <div className="photo-details-modal__photographer-location">
               { location.city }, { location.country }
             </div>
           </div>
         </div>
-        <p className='photo-details-modal__header' >Similar Photos</p>
+        <span className='photo-details-modal__header' >Similar Photos</span>
         <PhotoList photos={ Object.values(similar_photos) } showModal={ showModal } toggleFavourites={ toggleFavourites } setFavourites={ setFavourites } favourites={ favourites } />
       </div>
     </div>
