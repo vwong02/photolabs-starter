@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute topics={ topics } photos={ photos } showModal={ showModal } />
-      { displayModal && <PhotoDetailsModal selectedPhotos={ selectedPhotos } setDisplayModal={ setDisplayModal } showModal={ showModal } /> }
+      { displayModal && <PhotoDetailsModal selectedPhotos={ selectedPhotos } setDisplayModal={ setDisplayModal } /> }
     </div>
   );
 };

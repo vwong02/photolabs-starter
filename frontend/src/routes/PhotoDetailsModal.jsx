@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = ({ selectedPhotos, setDisplayModal, showModal }) => {
+const PhotoDetailsModal = ({ selectedPhotos, setDisplayModal }) => {
 
   const { location, urls, user, similar_photos } = selectedPhotos
 
