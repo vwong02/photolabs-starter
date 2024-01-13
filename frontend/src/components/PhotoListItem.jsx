@@ -9,13 +9,13 @@ const PhotoListItem = ({ photo, toggleFavourites, setFavourites, showModal, favo
 
   const handleClick = () => {
     showModal(photo)
-    setFavourites(photo)
+    console.log("OPEN: ", favourites)
   }
 
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton toggleFavourites={ toggleFavourites } photoId={ id } favourites={ favourites } />
+      <PhotoFavButton toggleFavourites={ toggleFavourites } photoId={ id } favourites={ favourites } setFavourites={ setFavourites } photo={ photo } />
       <img className="photo-list__image" src={ urls.regular } onClick={ handleClick } />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={ user.profile } />

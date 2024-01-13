@@ -15,11 +15,12 @@ const HomeRoute = ({ topics, photos, showModal }) => {
       return favourites;
     } else {
       setFavourites(favourites.filter((id) => id !== photoId));
-      return favourites
+      return favourites;
     }
   }
 
   const isFavPhotoExist = favourites.length > 0;
+
 
   return (
     <div className="home-route">

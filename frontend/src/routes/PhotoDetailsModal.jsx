@@ -13,6 +13,8 @@ const PhotoDetailsModal = ({ selectedPhotos, setDisplayModal }) => {
     setDisplayModal(false)
   }
 
+  // console.log("OBJECTVALUES: ", Object.values(similar_photos))
+
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={ handleClick }>
@@ -30,7 +32,7 @@ const PhotoDetailsModal = ({ selectedPhotos, setDisplayModal }) => {
             </div>
           </div>
         </div>
-        <PhotoList photos={ Object.values(similar_photos) } />
+        <PhotoList photos={ Object.values(similar_photos) } favourites={ [] } />
       </div>
     </div>
   );
