@@ -9,18 +9,17 @@ import photos from 'mocks/photos';
 const App = () => {
 
   const [ displayModal, setDisplayModal ] = useState(false)
-  const [ selectedPhoto, setSelectedPhoto ] = useState(null)
+  const [ selectedPhotos, setSelectedPhotos ] = useState(null)
 
   const showModal = (photo) => {
-    setSelectedPhoto(photo);
+    setSelectedPhotos(photo);
     setDisplayModal(true);
-    console.log(photo)
   }
 
   return (
     <div className="App">
-      <HomeRoute topics={ topics } photos={ photos } setDisplayModal={ setDisplayModal } setSelectedPhoto={setSelectedPhoto} showModal={ showModal } />
-      { displayModal && <PhotoDetailsModal selectedPhoto={ selectedPhoto } setDisplayModal={ setDisplayModal } showModal={ showModal } /> }
+      <HomeRoute topics={ topics } photos={ photos } showModal={ showModal } />
+      { displayModal && <PhotoDetailsModal selectedPhotos={ selectedPhotos } setDisplayModal={ setDisplayModal } showModal={ showModal } /> }
     </div>
   );
 };

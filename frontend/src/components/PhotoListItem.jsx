@@ -3,19 +3,19 @@ import React, { useState } from 'react';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton"
 
-const PhotoListItem = (props) => {
+const PhotoListItem = ({ photo, toggleFavourites, favourites, setFavourites, showModal }) => {
 
-  const { id, location, urls, user } = props.photo
+  const { id, location, urls, user } = photo
 
   const handleClick = () => {
-    props.showModal(props.photo)
-    props.setSelectedPhoto(props.photo)
+    showModal(photo)
+    setFavourites(photo)
   }
 
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton toggleFavourites={ props.toggleFavourites } favourites={ props.favourites } photoId={ id } />
+      <PhotoFavButton toggleFavourites={ toggleFavourites } favourites={ favourites } photoId={ id } setFavourites={ setFavourites } />
       <img className="photo-list__image" src={ urls.regular } onClick={ handleClick } />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={ user.profile } />

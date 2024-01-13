@@ -2,9 +2,9 @@ import React from "react";
 
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = (props) => {
+const TopicListItem = ({ topic }) => {
 
-  const { title } = props.topic
+  const { title } = topic
 
   return (
     <ul className="topic-list__item">

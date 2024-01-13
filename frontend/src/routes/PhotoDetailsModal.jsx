@@ -13,8 +13,6 @@ const PhotoDetailsModal = (props) => {
     props.setDisplayModal(false)
   }
 
-  console.log(Object.values(similar_photos))
-
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={ handleClick }>
