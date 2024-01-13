@@ -31,8 +31,8 @@ const PhotoDetailsModal = (props) => {
               { location.city }, { location.country }
             </div>
           </div>
-          <PhotoList photos={ Object.values(similar_photos) } />
         </div>
+        <PhotoList photos={ Object.values(similar_photos) } />
       </div>
     </div>
   );

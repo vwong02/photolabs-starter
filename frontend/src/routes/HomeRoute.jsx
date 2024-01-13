@@ -7,24 +7,24 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
 
-  const [ favourite, setFavourite ] = useState([])
+  const [ favourites, setFavourites ] = useState([])
 
-  const toggleFavourite = (photoId) => {
-    if (!favourite.includes(photoId)) {
-      setFavourite((prevFavourite) => [ ...prevFavourite, photoId ])
-      return favourite;
+  const toggleFavourites = (photoId) => {
+    if (!favourites.includes(photoId)) {
+      setFavourites((prevFavourites) => [ ...prevFavourites, photoId ])
+      return favourites;
     } else {
-      setFavourite(favourite.filter((id) => id !== photoId));
-      return favourite
+      setFavourites(favourites.filter((id) => id !== photoId));
+      return favourites
     }
   }
 
-  const isFavPhotoExist = favourite.length > 0;
+  const isFavPhotoExist = favourites.length > 0;
 
   return (
     <div className="home-route">
       <TopNavigationBar topics={ props.topics } isFavPhotoExist={ isFavPhotoExist } />
-      <PhotoList photos={ props.photos } toggleFavourite={ toggleFavourite } favourite={ favourite } setDisplayModal={ props.setDisplayModal } setSelectedPhoto={ props.setSelectedPhoto } selectedPhoto={ props.selectedPhoto } showModal={ props.showModal } />
+      <PhotoList photos={ props.photos } toggleFavourites={ toggleFavourites } favourites={ favourites } setDisplayModal={ props.setDisplayModal } setSelectedPhoto={ props.setSelectedPhoto } selectedPhoto={ props.selectedPhoto } showModal={ props.showModal } />
     </div>
   );
 };

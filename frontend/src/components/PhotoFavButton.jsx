@@ -5,22 +5,22 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  const isFavourite = props.favourite.includes(props.photoId)
+  const isFavourites = props.favourites.includes(props.photoId)
 
   // const like = function () {
   //   return (
-  //     props.favourite.includes(props.photoId) ? setHeartIcon(true) : setHeartIcon(false)
+  //     props.favourites.includes(props.photoId) ? setHeartIcon(true) : setHeartIcon(false)
   //   )
   // }
 
   const handleFavIconClick = () => {
-    props.toggleFavourite(props.photoId)
+    props.toggleFavourites(props.photoId)
   }
 
   return (
     <div className="photo-list__fav-icon">
       <div onClick={ handleFavIconClick } className="photo-list__fav-icon-svg">
-        <FavIcon selected={ isFavourite } />
+        <FavIcon selected={ isFavourites } />
       </div>
     </div>
   );
