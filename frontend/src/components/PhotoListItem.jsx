@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton"
 
-const PhotoListItem = ({ photo, toggleFavourites, showModal, favourites }) => {
+const PhotoListItem = ({ photo, toggleFavourites, setPhotoSelected, favourites }) => {
 
   const { id, location, urls, user } = photo
 
   const handleClick = () => {
-    showModal(photo)
+    setPhotoSelected(photo)
   }
 
 

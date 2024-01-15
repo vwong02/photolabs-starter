@@ -5,12 +5,12 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = ({selectedPhoto, setDisplayModal, showModal, toggleFavourites, favourites}) => {
+const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClosePhotoDetailsModal }) => {
 
   const { location, urls, user, similar_photos } = selectedPhoto
 
   const handleClick = () => {
-    setDisplayModal(false)
+    onClosePhotoDetailsModal()
   }
 
   return (
@@ -20,7 +20,7 @@ const PhotoDetailsModal = ({selectedPhoto, setDisplayModal, showModal, toggleFav
       </button>
       <div className="photo-details-modal__images">
         <img className="photo-details-modal__image" src={ urls.regular }></img>
-        <div className='photo-details-modal__photographer-details' >
+        <div className='photo-details-modal__photograp her-details' >
           <img className="photo-details-modal__photographer-profile" src={ user.profile }></img>
           <div className="photo-details-modal__photographer-info" >
             <span>{ user.name }</span>
@@ -30,7 +30,7 @@ const PhotoDetailsModal = ({selectedPhoto, setDisplayModal, showModal, toggleFav
           </div>
         </div>
         <span className='photo-details-modal__header' >Similar Photos</span>
-        <PhotoList photos={ selectedPhoto } showModal={ showModal } toggleFavourites={ toggleFavourites } favourites={ favourites } />
+        <PhotoList photos={ selectedPhoto } toggleFavourites={ toggleFavourites } favourites={ favourites } />
       </div>
     </div>
   );
