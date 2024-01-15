@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <div className="App">
 
-      <HomeRoute topics={ topics } photos={ photos } setSelectedPhoto={ setPhotoSelected } toggleFavourites={ updateToFavPhotoIds } favourites={ state.favourites } />
+      <HomeRoute topics={ topics } photos={ photos } setPhotoSelected={ setPhotoSelected } toggleFavourites={ updateToFavPhotoIds } favourites={ state.favourites } />
 
       { state.selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={ onClosePhotoDetailsModal } toggleFavourites={ updateToFavPhotoIds } selectedPhoto={ state.selectedPhoto } setPhotoSelected={ setPhotoSelected } favourites={ state.favourites } /> }
 

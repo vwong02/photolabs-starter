@@ -7,15 +7,10 @@ const PhotoListItem = ({ photo, toggleFavourites, setPhotoSelected, favourites }
 
   const { id, location, urls, user } = photo
 
-  const handleClick = () => {
-    setPhotoSelected(photo)
-  }
-
-
   return (
     <div className="photo-list__item">
       <PhotoFavButton toggleFavourites={ toggleFavourites } favourites={ favourites } photoId={ id } />
-      <img className="photo-list__image" src={ urls.regular } onClick={ handleClick } />
+      <img className="photo-list__image" src={ urls.regular } onClick={ () => { setPhotoSelected(photo) } } />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={ user.profile } />
         <div className="photo-list__user-info" >

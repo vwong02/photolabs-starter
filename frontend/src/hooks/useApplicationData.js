@@ -12,7 +12,7 @@ const initialState = {
   photos: null
 };
 
-export const ACTIONS = {
+const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO: 'SELECT_PHOTO',
@@ -42,7 +42,7 @@ function reducer(state, action) {
 
     // onPhotoSelect - Show photo details when clicked
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
-      return { ...state, displayModal: action.payload };
+      return { ...state, selectedPhoto: null };
 
 
     // setPhotoSelected - Set photo data when modal open
@@ -54,7 +54,7 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topics: action.payload };
 
-
+      
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${ action.type }`);
   }
@@ -77,10 +77,8 @@ const useApplicationData = () => {
 
   const setPhotoSelected = (selectedPhoto) => {
     // setState(prevState => ({ ...prevState, selectedPhoto: photo, displayModal: true }));
-    dispatch({ type: ACTIONS.SET_PHOTO, payload: state.selectedPhoto });
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: true });
-
-
+    // dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: true });
+    dispatch({ type: ACTIONS.SET_PHOTO, payload: selectedPhoto });
 
   };
 
@@ -96,43 +94,5 @@ const useApplicationData = () => {
     onClosePhotoDetailsModal,
   }
 };
-
-
-// const useApplicationData = () => {
-
-//   const [ state, setState ] = useState({
-//     favourites: [],
-//     selectedPhoto: null,
-//     displayModal: false
-//   })
-
-//   const onPhotoSelect = (photo) => {
-//     setState(prevState => ({ ...prevState, selectedPhoto: photo, displayModal: true }));
-//   }
-
-//   const updateToFavPhotoIds = (photoId) => {
-//     if (!state.favourites.includes(photoId)) {
-//       setState((prevState) => ({ ...prevState, favourites: [ ...prevState.favourites, photoId ] }));
-//     } else {
-//       setState((prevState) => ({ ...prevState, favourites: prevState.favourites.filter((id) => id !== photoId) }));
-//     }
-//   };
-
-//   const onClosePhotoDetailsModal = () => {
-//     setState((prevState) => ({
-//       ...prevState,
-//       selectedPhoto: null,
-//       displayModal: false
-//     }));
-//   };
-
-//   return {
-//     state,
-//     onPhotoSelect,
-//     updateToFavPhotoIds,
-//     setPhotoSelected,
-//     onClosePhotoDetailsModal,
-//   }
-// }
 
 export default useApplicationData;

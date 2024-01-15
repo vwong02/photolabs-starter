@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
@@ -7,6 +7,8 @@ import PhotoList from 'components/PhotoList';
 const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites, setPhotoSelected }) => {
 
   const isFavPhotoExist = favourites.length > 0;
+
+
 
   return (
     <div className="home-route">
