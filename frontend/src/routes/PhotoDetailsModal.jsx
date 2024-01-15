@@ -5,9 +5,9 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = ({selectedPhotos, setDisplayModal, showModal, toggleFavourites, setFavourites, favourites}) => {
+const PhotoDetailsModal = ({selectedPhoto, setDisplayModal, showModal, toggleFavourites, favourites}) => {
 
-  const { location, urls, user, similar_photos } = selectedPhotos
+  const { location, urls, user, similar_photos } = selectedPhoto
 
   const handleClick = () => {
     setDisplayModal(false)
@@ -30,7 +30,7 @@ const PhotoDetailsModal = ({selectedPhotos, setDisplayModal, showModal, toggleFa
           </div>
         </div>
         <span className='photo-details-modal__header' >Similar Photos</span>
-        <PhotoList photos={ Object.values(similar_photos) } showModal={ showModal } toggleFavourites={ toggleFavourites } setFavourites={ setFavourites } favourites={ favourites } />
+        <PhotoList photos={ selectedPhoto } showModal={ showModal } toggleFavourites={ toggleFavourites } favourites={ favourites } />
       </div>
     </div>
   );

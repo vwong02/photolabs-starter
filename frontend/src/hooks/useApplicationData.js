@@ -4,12 +4,12 @@ const useApplicationData = () => {
 
   const [ state, setState ] = useState({
     favourites: [],
-    selectedPhotos: null,
+    selectedPhoto: null,
     displayModal: false
   })
 
   const onPhotoSelect = (photo) => {
-    setState(prevState => ({ ...prevState, selectedPhotos: photo, displayModal: true }));
+    setState(prevState => ({ ...prevState, selectedPhoto: photo, displayModal: true }));
   }
 
   const updateToFavPhotoIds = (photoId) => {
@@ -31,6 +31,7 @@ const useApplicationData = () => {
     setState((prevState) => ({
       ...prevState,
       selectedPhoto: null,
+      displayModal: false
     }));
   };
 

@@ -18,8 +18,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute topics={ topics } photos={ photos } showModal={ onPhotoSelect } />
-      { state.displayModal && <PhotoDetailsModal selectedPhotos={ state.selectedPhotos } setDisplayModal={ onClosePhotoDetailsModal } showModal={ onPhotoSelect } toggleFavourites={ updateToFavPhotoIds } favourites={ state.favourites } /> }
+
+      <HomeRoute topics={ topics } photos={ photos } showModal={ onPhotoSelect } toggleFavourites={ updateToFavPhotoIds } favourites={ state.favourites } />
+
+      { state.displayModal && <PhotoDetailsModal selectedPhoto={ setPhotoSelected } setDisplayModal={ onClosePhotoDetailsModal } showModal={ onPhotoSelect } toggleFavourites={ updateToFavPhotoIds } favourites={ state.favourites } /> }
+
     </div>
   );
 };

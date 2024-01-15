@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton"
 
-const PhotoListItem = ({ photo, toggleFavourites, setFavourites, showModal, favourites }) => {
+const PhotoListItem = ({ photo, toggleFavourites, showModal, favourites }) => {
 
   const { id, location, urls, user } = photo
 
