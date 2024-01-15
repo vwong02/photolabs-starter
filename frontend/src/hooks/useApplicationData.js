@@ -16,8 +16,7 @@ const useApplicationData = () => {
   })
 
   const showModal = (photo) => {
-    setSelectedPhotos(photo);
-    setDisplayModal(true);
+    setState(prevState => ({ ...prevState, selectedPhotos: photo, displayModal: true }));
   }
 
   const toggleFavourites = (photoId) => {
