@@ -20,15 +20,14 @@ const useApplicationData = () => {
   }
 
   const toggleFavourites = (photoId) => {
-    if (!favourites.includes(photoId)) {
-      setFavourites((prevFavourites) => [ ...prevFavourites, photoId ])
+    if (!state.favourites.includes(photoId)) {
+      setState((prevState) => ({ ...prevState, favourites: [...prevState.favourites, photoId] }));
     } else {
-      setFavourites(favourites.filter((id) => id !== photoId));
+      setState((prevState) => ({ ...prevState, favourites: prevState.favourites.filter((id) => id !== photoId) }));
     }
-  }
+  };
 
-  const isFavPhotoExist = favourites.length > 0;
-
+  const isFavPhotoExist = state.favourites.length > 0;
 
 
   // const {
