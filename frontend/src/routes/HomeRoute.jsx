@@ -8,8 +8,6 @@ const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites
 
   const isFavPhotoExist = favourites.length > 0;
 
-
-
   return (
     <div className='home-route'>
 

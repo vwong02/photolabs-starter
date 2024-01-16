@@ -5,6 +5,8 @@ import '../styles/PhotoList.scss';
 const PhotoList = ({ photos, toggleFavourites, selectedPhoto, setPhotoSelected, favourites }) => {
 
   return (
+
+
     <ul className='photo-list'>
 
       { photos.map((photo) => {

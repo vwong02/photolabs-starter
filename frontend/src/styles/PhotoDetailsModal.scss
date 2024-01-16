@@ -38,7 +38,7 @@
 
 .photo-details-modal__top-bar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin: 16px;
   margin-top: 8px;
@@ -57,9 +57,10 @@
   font-size: 18px;
   font-weight: 500;
   color: #1e1e1e;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  width: 90%;
+  display: flex;
+  margin: 24px 0 0 0;
+  padding: 24px 0 0 24px;
+  background-color: #F5F5F5;
 
 }
 
