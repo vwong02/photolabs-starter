@@ -56,9 +56,7 @@ Backend
 
 ## Demo
 
-https://github.com/vwong02/photolabs-starter/blob/4f0ffbf686901d0383d90996dd424eb87136a6aa/docs/photolabs-demo.mov
-
-
+<video src='/docs/photolabs-demo.mov'>
 
 
 ## Project Features
