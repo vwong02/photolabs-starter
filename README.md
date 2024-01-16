@@ -56,7 +56,8 @@ Backend
 
 ## Demo
 
-<video src='/docs/photolabs-demo.mov'>
+
+
 
 
 ## Project Features
