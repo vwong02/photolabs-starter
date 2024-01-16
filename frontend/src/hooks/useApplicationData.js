@@ -1,6 +1,4 @@
-import { useState, useReducer } from "react";
-import photos from "mocks/photos";
-import topics from "mocks/topics";
+import { useReducer, useEffect } from "react";
 
 
 // Declare initial states
@@ -8,8 +6,8 @@ const initialState = {
   favourites: [],
   selectedPhoto: null,
   displayModal: false,
-  topics: null,
-  photos: null
+  photoData: [],
+  topicData: []
 };
 
 const ACTIONS = {
@@ -47,12 +45,12 @@ function reducer(state, action) {
 
     // setPhotoSelected - Set photo data when modal open
     case ACTIONS.SET_PHOTO_DATA:
-      return { ...state, photos: action.payload };
+      return { ...state, photoData: action.payload };
 
 
     // Set topic data
     case ACTIONS.SET_TOPIC_DATA:
-      return { ...state, topics: action.payload };
+      return { ...state, topicData: action.payload };
 
       
     default:
@@ -86,6 +84,19 @@ const useApplicationData = () => {
     // setState((prevState) => ({ ...prevState, selectedPhoto: null));
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: false });
   };
+
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+  }, []);
+
 
   return {
     state,
