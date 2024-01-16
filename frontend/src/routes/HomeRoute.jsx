@@ -11,7 +11,7 @@ const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites
 
 
   return (
-    <div className="home-route">
+    <div className='home-route'>
 
       <TopNavigationBar topics={ topics } toggleSelectedTopic={ toggleSelectedTopic } isFavPhotoExist={ isFavPhotoExist } />
 

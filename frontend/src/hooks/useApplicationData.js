@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from 'react';
 
 
 // Declare initial states
@@ -25,40 +25,29 @@ const ACTIONS = {
 function reducer(state, action) {
 
   switch (action.type) {
-
-    //updateToFavPhotoIds - Add photo to favourites
     case ACTIONS.FAV_PHOTO_ADDED:
       return { ...state, favourites: [ ...state.favourites, action.payload ] };
 
-
-    // updateToFavPhotoIds - Delete photo from favourites
     case ACTIONS.FAV_PHOTO_REMOVED:
       return { ...state, favourites: state.favourites.filter((id) => id !== action.payload) };
 
-
-    // setPhotoSelected - Set photo and open modal when clicked
     case ACTIONS.SET_PHOTO:
       return { ...state, selectedPhoto: action.payload }
 
     case ACTIONS.SET_TOPIC:
       return { ...state, selectedTopic: action.payload }
 
-    // onPhotoSelect - Show photo details when clicked
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return { ...state, selectedPhoto: null };
 
-    // setPhotoSelected - Set photo data when modal open
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
 
-    // Set topic data
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
 
-    // Get photos for specific topics
     case ACTIONS.GET_PHOTOS_BY_TOPICS:
       return { ...state, photoData: action.payload };
-
 
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${ action.type }`);
@@ -80,7 +69,6 @@ const useApplicationData = () => {
 
   const setPhotoSelected = (selectedPhoto) => {
     dispatch({ type: ACTIONS.SET_PHOTO, payload: selectedPhoto });
-
   };
 
   const onClosePhotoDetailsModal = () => {
@@ -92,7 +80,7 @@ const useApplicationData = () => {
   }
 
   useEffect(() => {
-    fetch("/api/topics")
+    fetch('/api/topics')
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
       .catch((error) => console.error('Error:', error));
@@ -106,13 +94,12 @@ const useApplicationData = () => {
         .catch((error) => console.error('Error:', error));
     }
     else {
-      fetch("/api/photos")
+      fetch('/api/photos')
         .then((response) => response.json())
         .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
         .catch((error) => console.error('Error:', error));
     }
   }, [ state.selectedTopic ]);
-
 
   return {
     state,

@@ -1,11 +1,10 @@
-import React from "react";
-
-import "../styles/TopicList.scss";
-import TopicListItem from "./TopicListItem";
+import React from 'react';
+import TopicListItem from './TopicListItem';
+import '../styles/TopicList.scss';
 
 const TopicList = ({ topics, toggleSelectedTopic }) => {
   return (
-    <ul className="top-nav-bar__topic-list">
+    <ul className='top-nav-bar__topic-list'>
       { topics.map((topic) => {
         return (
           <TopicListItem key={ topic.id } id={ topic.id } topic={ topic } toggleSelectedTopic={ toggleSelectedTopic } />
