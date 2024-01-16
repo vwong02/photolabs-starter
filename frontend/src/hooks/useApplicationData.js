@@ -5,6 +5,7 @@ import { useReducer, useEffect } from "react";
 const initialState = {
   favourites: [],
   selectedPhoto: null,
+  selectedTopic: 0,
   displayModal: false,
   photoData: [],
   topicData: []
@@ -14,9 +15,11 @@ const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO: 'SELECT_PHOTO',
+  SET_TOPIC: 'SET_TOPIC',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BT_TOPICS'
 };
 
 function reducer(state, action) {
@@ -35,24 +38,28 @@ function reducer(state, action) {
 
     // setPhotoSelected - Set photo and open modal when clicked
     case ACTIONS.SET_PHOTO:
-      // { ...prevState, selectedPhoto: photo, displayModal: true }
       return { ...state, selectedPhoto: action.payload }
+
+    case ACTIONS.SET_TOPIC:
+      return { ...state, selectedTopic: action.payload }
 
     // onPhotoSelect - Show photo details when clicked
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return { ...state, selectedPhoto: null };
 
-
     // setPhotoSelected - Set photo data when modal open
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
-
 
     // Set topic data
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
 
-      
+    // Get photos for specific topics
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return { ...state, photoData: action.payload };
+
+
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${ action.type }`);
   }
@@ -65,37 +72,46 @@ const useApplicationData = () => {
 
   const updateToFavPhotoIds = (photoId) => {
     if (!state.favourites.includes(photoId)) {
-      //setState((prevState) => ({ ...prevState, favourites: [ ...prevState.favourites, photoId ] }));
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
     } else {
-      // setState((prevState) => ({ ...prevState, favourites: prevState.favourites.filter((id) => id !== photoId) }));
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId })
     }
   };
 
   const setPhotoSelected = (selectedPhoto) => {
-    // setState(prevState => ({ ...prevState, selectedPhoto: photo, displayModal: true }));
-    // dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: true });
     dispatch({ type: ACTIONS.SET_PHOTO, payload: selectedPhoto });
 
   };
 
   const onClosePhotoDetailsModal = () => {
-    // setState((prevState) => ({ ...prevState, selectedPhoto: null));
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: false });
   };
 
-  useEffect(() => {
-    fetch("/api/photos")
-      .then((response) => response.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
-  }, []);
+  const toggleSelectedTopic = (selectedTopic) => {
+    dispatch({ type: ACTIONS.SET_TOPIC, payload: selectedTopic })
+  }
 
   useEffect(() => {
     fetch("/api/topics")
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+      .catch((error) => console.error('Error:', error));
   }, []);
+
+  useEffect(() => {
+    if (state.selectedTopic) {
+      fetch(`/api/topics/photos/${ state.selectedTopic }`)
+        .then((response) => response.json())
+        .then((data) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }))
+        .catch((error) => console.error('Error:', error));
+    }
+    else {
+      fetch("/api/photos")
+        .then((response) => response.json())
+        .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+        .catch((error) => console.error('Error:', error));
+    }
+  }, [ state.selectedTopic ]);
 
 
   return {
@@ -103,6 +119,7 @@ const useApplicationData = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
+    toggleSelectedTopic
   }
 };
 
