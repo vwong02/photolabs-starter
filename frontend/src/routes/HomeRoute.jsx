@@ -4,7 +4,7 @@ import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 
-const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites, setPhotoSelected,toggleSelectedTopic }) => {
+const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites, setPhotoSelected, toggleSelectedTopic }) => {
 
   const isFavPhotoExist = favourites.length > 0;
 

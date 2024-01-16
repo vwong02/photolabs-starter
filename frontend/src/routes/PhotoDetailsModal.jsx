@@ -36,9 +36,7 @@ const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClos
       </div>
 
       <h4 className='photo-details-modal__header'>Similar Photos </h4>
-      <PhotoList setPhotoSelected={ () => { selectedPhoto } }
-        photos={ Object.values(selectedPhoto.similar_photos) } toggleFavourites={ toggleFavourites } favourites={ favourites } />
-
+      <PhotoList photos={ Object.values(selectedPhoto.similar_photos) } toggleFavourites={ toggleFavourites } favourites={ favourites } />
     </div>
 
   );
