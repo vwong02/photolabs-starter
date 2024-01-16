@@ -5,7 +5,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import '../styles/PhotoDetailsModal.scss'
 
 
-const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClosePhotoDetailsModal, setPhotoSelected }) => {
+const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClosePhotoDetailsModal }) => {
 
   const { location, urls, user, id } = selectedPhoto
 
@@ -38,6 +38,7 @@ const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClos
       <h4 className='photo-details-modal__header'>Similar Photos </h4>
       <PhotoList setPhotoSelected={ () => { selectedPhoto } }
         photos={ Object.values(selectedPhoto.similar_photos) } toggleFavourites={ toggleFavourites } favourites={ favourites } />
+
     </div>
 
   );

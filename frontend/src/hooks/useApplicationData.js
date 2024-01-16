@@ -38,7 +38,7 @@ function reducer(state, action) {
       return { ...state, selectedTopic: action.payload }
 
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
-      return { ...state, selectedPhoto: null };
+      return { ...state, selectedPhoto: action.payload };
 
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
@@ -72,7 +72,7 @@ const useApplicationData = () => {
   };
 
   const onClosePhotoDetailsModal = () => {
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: false });
+    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: null });
   };
 
   const toggleSelectedTopic = (selectedTopic) => {
