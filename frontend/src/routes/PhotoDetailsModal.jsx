@@ -1,11 +1,11 @@
-import React from 'react';
-import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoList from 'components/PhotoList';
-import PhotoFavButton from 'components/PhotoFavButton';
+import React from 'react'
+import closeSymbol from '../assets/closeSymbol.svg'
+import PhotoList from 'components/PhotoList'
+import PhotoFavButton from 'components/PhotoFavButton'
 import '../styles/PhotoDetailsModal.scss'
 
 
-const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClosePhotoDetailsModal }) => {
+const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClosePhotoDetailsModal, setPhotoSelected }) => {
 
   const { location, urls, user, id } = selectedPhoto
 
@@ -17,7 +17,7 @@ const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClos
       </button>
 
       <div className='photo-details-modal__images'>
-        <PhotoFavButton favourites={ favourites } toggleFavourites={ toggleFavourites } photos={ Object.values(selectedPhoto.similar_photos) } photoId={ id } />
+        <PhotoFavButton favourites={ favourites } toggleFavourites={ toggleFavourites } photoId={ id } />
         <img className='photo-details-modal__image' src={ urls.full }></img>
 
         <div className='photo-details-modal__photographer-details' >
@@ -36,10 +36,15 @@ const PhotoDetailsModal = ({ selectedPhoto, toggleFavourites, favourites, onClos
       </div>
 
       <h4 className='photo-details-modal__header'>Similar Photos </h4>
-      <PhotoList photos={ Object.values(selectedPhoto.similar_photos) } toggleFavourites={ toggleFavourites } favourites={ favourites } />
+      <PhotoList
+        photos={ Object.values(selectedPhoto.similar_photos) }
+        // setPhotoSelected={ setPhotoSelected } TODO: need to fix functionality of setPhotoSelected
+        toggleFavourites={ toggleFavourites }
+        favourites={ favourites }
+      />
     </div>
 
-  );
-};
+  )
+}
 
-export default PhotoDetailsModal;
+export default PhotoDetailsModal

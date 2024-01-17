@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import FavBadge from 'components/FavBadge'
-import TopicList from './TopicList';
+import TopicList from './TopicList'
 import '../styles/TopNavigationBar.scss'
 
 const TopNavigationBar = ({ topics, isFavPhotoExist, toggleSelectedTopic }) => {
@@ -13,4 +13,4 @@ const TopNavigationBar = ({ topics, isFavPhotoExist, toggleSelectedTopic }) => {
   )
 }
 
-export default TopNavigationBar;
+export default TopNavigationBar

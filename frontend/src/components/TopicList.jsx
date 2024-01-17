@@ -1,6 +1,6 @@
-import React from 'react';
-import TopicListItem from './TopicListItem';
-import '../styles/TopicList.scss';
+import React from 'react'
+import TopicListItem from './TopicListItem'
+import '../styles/TopicList.scss'
 
 const TopicList = ({ topics, toggleSelectedTopic }) => {
   return (
@@ -11,7 +11,7 @@ const TopicList = ({ topics, toggleSelectedTopic }) => {
         )
       }) }
     </ul>
-  );
-};
+  )
+}
 
-export default TopicList;
+export default TopicList

@@ -1,12 +1,12 @@
-import React from 'react';
-import '../styles/HomeRoute.scss';
-import TopNavigationBar from 'components/TopNavigationBar';
-import PhotoList from 'components/PhotoList';
+import React from 'react'
+import '../styles/HomeRoute.scss'
+import TopNavigationBar from 'components/TopNavigationBar'
+import PhotoList from 'components/PhotoList'
 
 
 const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites, setPhotoSelected, toggleSelectedTopic }) => {
 
-  const isFavPhotoExist = favourites.length > 0;
+  const isFavPhotoExist = favourites.length > 0
 
   return (
     <div className='home-route'>
@@ -16,8 +16,8 @@ const HomeRoute = ({ topics, photos, selectedPhoto, favourites, toggleFavourites
       <PhotoList photos={ photos } toggleFavourites={ toggleFavourites } selectedPhoto={ selectedPhoto } setPhotoSelected={ setPhotoSelected } favourites={ favourites } />
     </div>
 
-  );
-};
+  )
+}
 
 
-export default HomeRoute;
+export default HomeRoute

@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/TopicListItem.scss';
+import React from 'react'
+import '../styles/TopicListItem.scss'
 
 const TopicListItem = ({ topic, toggleSelectedTopic }) => {
 
@@ -9,7 +9,7 @@ const TopicListItem = ({ topic, toggleSelectedTopic }) => {
     <ul className='topic-list__item'>
       <span onClick={ () => toggleSelectedTopic(id) }>{ title }</span>
     </ul>
-  );
-};
+  )
+}
 
-export default TopicListItem;
+export default TopicListItem

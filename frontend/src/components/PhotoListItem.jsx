@@ -1,10 +1,12 @@
-import React from 'react';
+import React from 'react'
 import PhotoFavButton from './PhotoFavButton'
-import '../styles/PhotoListItem.scss';
+import '../styles/PhotoListItem.scss'
 
 const PhotoListItem = ({ photo, toggleFavourites, setPhotoSelected, favourites }) => {
 
   const { id, location, urls, user } = photo
+
+  // console.log({ PHOTOLISTITEM: photo })
 
   return (
     <div className='photo-list__item'>
@@ -19,7 +21,7 @@ const PhotoListItem = ({ photo, toggleFavourites, setPhotoSelected, favourites }
       </div>
     </div>
   )
-};
+}
 
 
-export default PhotoListItem;
+export default PhotoListItem

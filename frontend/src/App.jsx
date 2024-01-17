@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import './App.scss';
-import HomeRoute from 'routes/HomeRoute';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import useApplicationData from "hooks/useApplicationData";
+import './App.scss'
+import HomeRoute from 'routes/HomeRoute'
+import PhotoDetailsModal from 'routes/PhotoDetailsModal'
+import useApplicationData from "hooks/useApplicationData"
 
 
 const App = () => {
@@ -21,10 +21,10 @@ const App = () => {
 
       <HomeRoute topics={ state.topicData } photos={ state.photoData } setPhotoSelected={ setPhotoSelected } toggleFavourites={ updateToFavPhotoIds } favourites={ state.favourites } toggleSelectedTopic={ toggleSelectedTopic } selectedPhoto={ state.selectedPhoto } />
 
-      { state.selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={ onClosePhotoDetailsModal } toggleFavourites={ updateToFavPhotoIds } selectedPhoto={ state.selectedPhoto } favourites={ state.favourites } /> }
+      { state.selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={ onClosePhotoDetailsModal } toggleFavourites={ updateToFavPhotoIds } selectedPhoto={ state.selectedPhoto } favourites={ state.favourites } setPhotoSelected={ setPhotoSelected } /> }
 
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

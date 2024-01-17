@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const FavIcon = ({ displayAlert, selected }) => {
   return (
@@ -9,7 +9,7 @@ const FavIcon = ({ displayAlert, selected }) => {
         <circle cx='21' cy='4' r='2.75' fill='#00ff00' stroke='#C80000' strokeWidth='1' />
       }
     </svg>
-  );
-};
+  )
+}
 
-export default FavIcon;
+export default FavIcon
